@@ -1,70 +1,103 @@
-# Getting Started with Create React App
+# Weather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A clean React weather app that lets you search for a city and view a 5-day forecast. The project uses the Open-Meteo APIs for geocoding and weather data, so no API key is required.
 
-## Available Scripts
+## Preview
 
-In the project directory, you can run:
+- Search any city by name
+- See a simple 5-day forecast
+- View daily max/min temperatures
+- Get a readable weather condition summary
+- Fast setup with `pnpm`
 
-### `npm start`
+## Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- React
+- Create React App
+- Open-Meteo Geocoding API
+- Open-Meteo Forecast API
+- pnpm
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## How It Works
 
-### `npm test`
+1. The app sends the city name to the Open-Meteo geocoding endpoint.
+2. It reads the returned latitude and longitude.
+3. It fetches the current weather and daily forecast using those coordinates.
+4. It renders the next 5 days in a compact card layout.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+### Requirements
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Node.js 18+ recommended
+- pnpm 10+
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Installation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```bash
+pnpm install
+```
 
-### `npm run eject`
+### Run in Development
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+pnpm start
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app will be available at `http://localhost:3000`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Build for Production
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+pnpm build
+```
 
-## Learn More
+### Run Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+pnpm test
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Project Structure
 
-### Code Splitting
+```text
+.
+├── public/
+├── src/
+│   ├── App.js
+│   ├── App.css
+│   ├── index.css
+│   └── index.js
+├── package.json
+└── pnpm-lock.yaml
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## API Notes
 
-### Analyzing the Bundle Size
+- Geocoding: `https://geocoding-api.open-meteo.com/v1/search`
+- Forecast: `https://api.open-meteo.com/v1/forecast`
+- The app currently requests:
+  - current temperature
+  - current wind speed
+  - current weather code
+  - daily min/max temperatures
+  - daily weather codes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Possible Improvements
 
-### Making a Progressive Web App
+- Add weather icons for each forecast code
+- Show current temperature and wind details in the UI
+- Add loading skeletons and empty states
+- Persist recent searches
+- Add unit tests for data mapping helpers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Scripts
 
-### Advanced Configuration
+- `pnpm start` starts the development server
+- `pnpm build` creates a production build
+- `pnpm test` runs the test suite
+- `pnpm eject` ejects the CRA configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## License
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is open for personal learning and portfolio use.
